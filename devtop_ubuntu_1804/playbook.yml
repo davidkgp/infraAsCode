@@ -3,6 +3,10 @@
   hosts: all
   become: yes
 
+
+  roles:
+    - geerlingguy.docker
+
   tasks:
 
   - apt_repository:
@@ -32,4 +36,13 @@
       echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
       sudo apt update
       sudo apt install sublime-text
+
+  - name: Install snap items with option --classic
+    snap:
+      name: "{{ item }}"
+      classic: yes
+      channel: edge
+
+    with_items:
+      - intellij-idea-community
 
