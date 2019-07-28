@@ -1,0 +1,24 @@
+---
+- name: setup devtop
+  hosts: all
+  become: yes
+
+  tasks:
+
+  - apt_repository:
+      repo: "{{ item }}"
+      state: present
+    with_items:
+      - ppa:git-core/ppa
+
+  - name: apt items setup
+    apt:
+      name: "{{ item }}"
+      state: present
+      update_cache: yes
+      
+    with_items:
+      - terminator
+      - net-tools
+      - curl
+      - git
