@@ -1,0 +1,5 @@
+- apt_repository:
+    repo: "{{ repo_details }}"
+    state: present
+    filename: "{{ custom_file_name }}"
+    update_cache: yes

@@ -3,8 +3,4 @@
     url: "{{ url }}"
     state: present
 
-- apt_repository:
-    repo: "{{ repo_details }}"
-    state: present
-    filename: "{{ custom_file_name }}"
-    update_cache: yes
+- include: apt-repo.yml
