@@ -13,7 +13,7 @@
 
   tasks:
   
-  - name: Set timezone to Asia/Tokyo
+  - name: Set timezone to Europe/Amsterdam
     timezone:
       name: Europe/Amsterdam
 
