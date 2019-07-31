@@ -1,0 +1,4 @@
+- name: Clean unwanted olderstuff
+  apt:
+    autoremove: yes
+    purge: yes
