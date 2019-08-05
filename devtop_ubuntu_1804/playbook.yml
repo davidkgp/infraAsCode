@@ -21,6 +21,11 @@
   - include: apt-custom.yml url="https://dbeaver.io/debs/dbeaver.gpg.key" repo_details="deb https://dbeaver.io/debs/dbeaver-ce /" custom_file_name="dbeaver"
   - include: apt-repo.yml repo_details="ppa:git-core/ppa" custom_file_name="git"
 
+  - name: Run the equivalent of "apt-get update" as a separate step
+    apt:
+      update_cache: yes
+      upgrade: yes
+
   - name: apt items setup
     apt:
       name: "{{ item }}"
@@ -57,4 +62,3 @@
       path: "{{ user_home }}/.bashrc"
       line: export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
       insertafter: EOF
-
