@@ -3,8 +3,8 @@
   hosts: all
   become: yes
 
-  vars_files:
-    - ./vars/user_vars.yml
+  vars:
+   local_home: "{{ lookup('env','HOME') }}"
 
 
   roles:
@@ -59,6 +59,6 @@
 
   - name: Set env variables in .bashrc
     lineinfile:
-      path: "{{ user_home }}/.bashrc"
+      path: "{{ local_home }}/.bashrc"
       line: export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
       insertafter: EOF
