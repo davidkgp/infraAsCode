@@ -38,6 +38,7 @@
       - openjdk-8-jdk
       - sublime-text
       - dbeaver-ce
+      - ppa-purge
 
   - include: cleanup.yml
 
