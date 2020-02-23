@@ -63,3 +63,8 @@
       path: "{{ local_home }}/.bashrc"
       line: export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
       insertafter: EOF
+  - name: Set current user to sudoers file
+    lineinfile:
+      path: "/etc/sudoers"
+      line: "{{ ansible_user }} ALL=(ALL) NOPASSWD:ALL"
+      insertafter: EOF
